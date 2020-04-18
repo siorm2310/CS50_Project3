@@ -1,0 +1,61 @@
+{% regroup pizzas by get_pizza_type_display as pizzas_list %} {% regroup
+other_dishes by dish_type as pizzas_list %}
+
+<ul class="list-group">
+  <h4>Pizzas</h4>
+  {% for type, pizzas in pizzas_list %}
+  <li class="list-group-item">
+    <h5>{{ type }}</h5>
+    <ul class="list-group">
+      {% for pizza in pizzas %}
+      <button type="button" class="list-group-item list-group-item-action">
+        {{ pizza.name }}
+      </button>
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+  <h4>Subs</h4>
+  {% for sub in subs %}
+  <ul class="list-group">
+    <button type="button" class="list-group-item list-group-item-action">
+      {{ sub.name }}
+    </button>
+  </ul>
+  {% endfor %}
+</ul>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
