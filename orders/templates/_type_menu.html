@@ -1,5 +1,6 @@
-{% regroup pizzas by get_pizza_type_display as pizzas_list %} {% regroup
-other_dishes by dish_type as pizzas_list %}
+<!-- prettier-ignore -->
+{% regroup pizzas by get_pizza_type_display as pizzas_list %} 
+{% regroup other_dishes by dish_type as dish_list %}
 
 <ul class="list-group">
   <h4>Pizzas</h4>
@@ -8,7 +9,11 @@ other_dishes by dish_type as pizzas_list %}
     <h5>{{ type }}</h5>
     <ul class="list-group">
       {% for pizza in pizzas %}
-      <button type="button" class="list-group-item list-group-item-action">
+      <button
+        type="button"
+        class="list-group-item list-group-item-action pizza"
+        data-id="{{pizza.id}}"
+      >
         {{ pizza.name }}
       </button>
       {% endfor %}
@@ -16,12 +21,36 @@ other_dishes by dish_type as pizzas_list %}
   </li>
   {% endfor %}
   <h4>Subs</h4>
-  {% for sub in subs %}
-  <ul class="list-group">
-    <button type="button" class="list-group-item list-group-item-action">
-      {{ sub.name }}
-    </button>
-  </ul>
+  <li class="list-group-item">
+    {% for sub in subs %}
+    <ul class="list-group">
+      <button
+        type="button"
+        class="list-group-item list-group-item-action sub"
+        data-id="{{sub.id}}"
+      >
+        {{ sub.name }}
+      </button>
+    </ul>
+    {% endfor %}
+  </li>
+
+  <h4>Other Dishes</h4>
+  {% for type, dishes in dish_list %}
+  <li class="list-group-item">
+    <h5>{{ type }}</h5>
+    <ul class="list-group">
+      {% for dish in dishes %}
+      <button
+        type="button"
+        class="list-group-item list-group-item-action dish"
+        data-id="{{dish.id}}"
+      >
+        {{ dish.name }}
+      </button>
+      {% endfor %}
+    </ul>
+  </li>
   {% endfor %}
 </ul>
 

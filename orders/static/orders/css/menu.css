@@ -1,0 +1,4 @@
+#type_menu > * {
+  overflow-y: auto;
+  height: 25%;
+}

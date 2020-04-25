@@ -1,5 +1,6 @@
 {% extends "layout.html" %} {% load static %} {% block head %}
-<script src="{% static 'menu.js' %}" type=""></script>
+<script src="{% static 'orders/js/menu.js' %}" type="javascript"></script>
+<link rel="stylesheet" href="{% static 'orders/css/menu.css' %}" />
 {% endblock %} {% block title %} Menu {% endblock %} {% block body %}
 <header>
   <nav class="navbar navbar-light bg-light justify-content-between">
@@ -14,9 +15,8 @@
 </header>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3">{% include "_type_menu.html" %}</div>
-    <div class="col-6">{% include "_items.html" %}</div>
-    <div class="col-3">{% include "_order.html" %}</div>
+    <div class="col-4" id="type_menu">{% include "_type_menu.html" %}</div>
+    <div class="col-8">{% include "_order.html" %}</div>
   </div>
 </div>
 
