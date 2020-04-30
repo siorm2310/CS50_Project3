@@ -17,3 +17,4 @@ for top in ToppingsAndExtras.objects.all():
 
 for sub in Sub.objects.all():
     sub.available_toppings.add(extra_cheese)
+
