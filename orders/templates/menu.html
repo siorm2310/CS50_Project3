@@ -2,10 +2,13 @@
 {% extends "layout.html" %}
 {% load static %}
 {% block head %}
+{{ pizzas|json_script:"pizzasJSON"}}
+{{ subs|json_script:"subsJSON"}}
+{{ other_dishes|json_script:"other_dishesJSON"}}
+{{ toppings|json_script:"toppingsJSON"}}
 <script src="{% static 'orders/js/menu.js' %}" type="text/javascript"></script>
 <link rel="stylesheet" href="{% static 'orders/css/menu.css' %}" />
-{{ pizzas|json_script:"pizzaJSON"}} {{ subs|json_script:"subsJSON"}} {{
-pizzas|json_script:"pizzaJSON"}}
+<!-- prettier-ignore -->
 <!-- prettier-ignore -->
 {% endblock %}
 {% block title %} Menu {% endblock %}
